@@ -63,5 +63,36 @@ module.exports = {
             );
         })
         .then(() => res.json({ message: "Thought deleted"}))
-    }
-}
+    },
+
+    // create a reaction
+    createReaction(req, res) {
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $addToSet: { reactions: req.body } },
+            { new: true }
+        )
+        .then((thought) => {
+            if (!thought) {
+                return res.status(404).json({ message: "Thought not found"})
+            }
+        res.json(thought);
+        })
+        .catch((err) => res.status(500).json(err));
+    },
+    // delete a reaction
+    deleteReaction(req, res) {
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { _id: req.params.reactionId } } },
+            { new: true }
+        )
+        .then((thought) => {
+            if (!thought) {
+                return res.status(404).json({ message: "Thought not found" })
+            }
+            res.json(thought);
+        })
+        .catch((err) => res.status(500).json(err));
+    },
+};

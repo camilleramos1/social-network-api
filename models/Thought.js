@@ -1,4 +1,5 @@
 const { Schema, Types, model } = require('mongoose');
+const { format } = require('date-fns');
 
 const reactionSchema = new Schema(
     {
@@ -18,6 +19,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: (createdAt) => format(createdAt, 'MMMM do, yyyy \'at\' hh:mm a'),
         },
     },
 );
@@ -33,6 +35,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: (createdAt) => format(createdAt, 'MMMM do, yyyy \'at\' hh:mm a'),
         },
         username: {
             type: String,
@@ -42,7 +45,7 @@ const thoughtSchema = new Schema(
     },
 );
 
-userSchema.virtual('reactionCount').get(function() {
+thoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
 

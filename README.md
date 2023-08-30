@@ -6,7 +6,7 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Demo](#demo)
+* [Walkthrough](#walkthrough)
 * [License](#license)
 * [Questions](#questions)
 
@@ -43,7 +43,7 @@ Clone this repository, and ensure to run npm i within your terminal to install a
 * `POST /api/thoughts/:thoughtId/reactions` - Add new reaction
 * `DELETE /api/thoughts/:thoughtId/reactions/:reactionId` - Delete reaction
 
-## Demo Video Walkthrough
+## Walkthrough 
 
 
 ## License

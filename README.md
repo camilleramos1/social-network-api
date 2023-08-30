@@ -23,7 +23,7 @@ Clone this repository, and ensure to run npm i within your terminal to install a
 * Use Insomnia to test routes 
 
 
-<ins>The following routes can be used:</ins>
+### The following routes can be used:
 
 **USER**
 * `GET /api/users` - Get all users
@@ -45,6 +45,11 @@ Clone this repository, and ensure to run npm i within your terminal to install a
 
 ## Walkthrough 
 
+Below is the link to watch the full walkthrough video: 
+
+https://drive.google.com/file/d/1NnpBLQxl88B7Qju-gI-EvWKy4tcKmDQ5/view
+
+At the end of the video, I also show that I included the bonus prompt. This application deletes a user's associated thoughts when the user is deleted. 
 
 ## License
 This project is covered under the MIT license. To learn more, please click the license badge at the top of the page.

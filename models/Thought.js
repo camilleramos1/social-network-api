@@ -19,12 +19,14 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: function() {
-                return format(this.createdAt, "MMMM do, yyyy 'at' hh:mm a")
-            },
+            get: (date) => format(Date.parse(date), "MMMM do, yyyy 'at' hh:mm a")
         },
     },
 );
+
+function formatDate(date) {
+    return format(new Date(date), "MMMM do, yyyy 'at' hh:mm a")
+};
 
 const thoughtSchema = new Schema(
     {
@@ -37,6 +39,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: formatDate
         },
         username: {
             type: String,
@@ -44,19 +47,24 @@ const thoughtSchema = new Schema(
         },
         reactions: [reactionSchema],
     },
+    {
+        toJSON: {
+          getters: true,
+        },
+    },
 );
 
 thoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
 
-thoughtSchema.pre('save',  function(next) {
-    if (!this.isNew) {
-        return next();
-    }
-    this.createdAt = format(this.createdAt, "MMMM do, yyyy 'at' hh:mm a");
-    next();
-});
+// thoughtSchema.pre('save',  function(next) {
+//     if (!this.isNew) {
+//         return next();
+//     }
+//     this.createdAt = format(this.createdAt, "MMMM do, yyyy 'at' hh:mm a");
+//     next();
+// });
 
 const Thought = model('Thought', thoughtSchema);
 module.exports = Thought;

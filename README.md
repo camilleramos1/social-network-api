@@ -6,6 +6,7 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Demo](#demo)
 * [License](#license)
 * [Questions](#questions)
 
@@ -21,25 +22,29 @@ Clone this repository, and ensure to run npm i within your terminal to install a
 * Use database socialDB
 * Use Insomnia to test routes 
 
-The following routes can be used:
+
+<ins>The following routes can be used:</ins>
 
 **USER**
-* `GET /api/users`
-* `GET /api/users/:userId`
-* `POST /api/users`
-* `PUT /api/users/:userId`
-* `DELETE /api/users/:userId`
-* `POST /api/users/:userId/friends/:friendId`
-* `DELETE /api/users/:userId/friends/:friendId`
+* `GET /api/users` - Get all users
+* `GET /api/users/:userId` - Get one user by id
+* `POST /api/users` - Create new user
+* `PUT /api/users/:userId` - Update existing user
+* `DELETE /api/users/:userId` - Delete user by id
+* `POST /api/users/:userId/friends/:friendId` - Add new friend
+* `DELETE /api/users/:userId/friends/:friendId` - Delete friend
 
 **THOUGHTS**
-* GET /api/thoughts
-* GET /api/thoughts/:thoughtId
-* POST /api/thoughts
-* PUT /api/thoughts/:thoughtId
-* DELETE /api/thoughts/:thoughtId
-* POST /api/thoughts/:thoughtId/reactions
-* DELETE /api/thoughts/:thoughtId/reactions/:reactionId
+* `GET /api/thoughts` - Get all thoughts
+* `GET /api/thoughts/:thoughtId` - Get one thought by id
+* `POST /api/thoughts` - Create new thought
+* `PUT /api/thoughts/:thoughtId` - Update existing thought
+* `DELETE /api/thoughts/:thoughtId` - Delete thought by id
+* `POST /api/thoughts/:thoughtId/reactions` - Add new reaction
+* `DELETE /api/thoughts/:thoughtId/reactions/:reactionId` - Delete reaction
+
+## Demo Video Walkthrough
+
 
 ## License
 This project is covered under the MIT license. To learn more, please click the license badge at the top of the page.
